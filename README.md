@@ -1,75 +1,82 @@
-# @arindexer: Arweave Indexer
+# @arindexer — Arweave Indexer
 
-## 🚀 Overview
+## Overview
 
-Arweave Indexer (arindexer) is a lightweight, powerful utility for querying and indexing data on the Arweave network. Designed for Web3 developers, it simplifies data management and discovery in decentralized applications.
+Arweave Indexer (`arindexer`) is a lightweight indexing and query utility for the Arweave network. It enables developers to efficiently index, discover, and retrieve structured data for decentralized applications built on Arweave and the AO ecosystem.
 
-## 🌐 Key Features
+## Features
 
-- 🔍 **Effortless Querying**: Search and retrieve projects instantly
-- 📤 **Simple Indexing**: Easily index your project data
-- 🔗 **Integration**: Built for the Arweave Open ecosystem
-- 🛡️ **TypeScript Support**: Full type declarations for enhanced developer experience
-- 🚀 **ARLINK Deployment**: Automatic indexing for projects deployed on ARLINK
+* Fast querying of indexed data
+* Simple API for indexing structured content
+* Native support for Arweave and AO ecosystem
+* Fully typed TypeScript interface
+* Integration-ready for ARLINK deployments
 
-## 💾 Installation
+## Installation
 
 ```bash
 npm install arweave-indexer
 ```
 
-## 🛠️ Usage
+## Usage
 
-### Querying Data
+### Query Data
 
-```typescript
-import { query } from 'arweave-indexer';
+```ts
+import { query } from "arweave-indexer";
 
-async function searchProjects() {
-  const results = await query('web3');
+async function search() {
+  const results = await query("web3");
   console.log(results);
 }
 ```
 
-### Indexing Data
+### Index Data
 
-```typescript
-import { index } from 'arweave-indexer';
+```ts
+import { index } from "arweave-indexer";
 
 async function indexProject() {
   const result = await index(
     JSON.stringify({
-      title: 'My Web3 Project',
-      description: 'An awesome decentralized project'
+      title: "My Web3 Project",
+      description: "A decentralized application"
     }),
     window.arweaveWallet
   );
+
   console.log(result);
 }
 ```
 
 ### Advanced Querying
 
-```typescript
-const results = await query('web3', {
-  process: 'custom-process-id',
-  tags: [{ name: 'Category', value: 'Blockchain' }]
+```ts
+const results = await query("web3", {
+  process: "custom-process-id",
+  tags: [
+    { name: "Category", value: "Blockchain" }
+  ]
 });
 ```
 
-## 📝 API Reference
+## API Reference
 
-### `query(searchTerm: string, options?: IndexerOptions)`
-- Performs a dry run query on the AO network
-- Returns an array of projects or `null`
+### query(searchTerm: string, options?: IndexerOptions)
 
-### `index(data: string, wallet: any, options?: IndexerOptions)`
-- Sends an indexing message to the AO network
-- Returns the message result or `null`
+Queries indexed data on the AO network.
 
-## 🧩 Types
+Returns an array of results or `null`.
 
-```typescript
+### index(data: string, wallet: any, options?: IndexerOptions)
+
+Indexes structured data into the AO network.
+
+Returns the message result or `null`.
+
+## Types
+
+```ts
 interface Project {
   title: string;
   link: string;
@@ -83,28 +90,18 @@ interface IndexerOptions {
 }
 ```
 
-## 🌍 Ecosystem
+## Ecosystem
 
-- **Hagrid**: Search and browse AR ecosystem projects
-  - URL: hagrid_arlink.arweave.net
-- **ARLINK**: Deployment service with automatic indexing
-- **AR Indexer Website**: ar-indexer_arlink.arweave.net
+* Hagrid — Search and browse Arweave ecosystem projects
+  [https://hagrid_arlink.arweave.net](https://hagrid_arlink.arweave.net)
 
-## 🔗 Links
+* ARLINK — Deployment platform with automatic indexing support
 
-- **NPM Package**: https://www.npmjs.com/package/arweave-indexer
-- **Protocol Land Repository**: https://protocol.land/#/repository/5a58a42b-55c9-4ce4-a5f9-cc3546d2f887
+* AR Indexer — Project discovery and indexing layer
+  [https://ar-indexer_arlink.arweave.net](https://ar-indexer_arlink.arweave.net)
 
-## 📦 Package Stats
+## Package Information
 
-- **Version**: 1.1.0
-- **Weekly Downloads**: 100+
-- **License**: MIT
-
-## 🤝 Contributing
-
-Contributions are welcome! Please check the GitHub repository for guidelines.
-
-## 📄 License
-
-MIT License
+* Version: 1.1.0
+* Weekly Downloads: 100+
+* License: MIT
